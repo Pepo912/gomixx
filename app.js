@@ -13,6 +13,41 @@
   let validCode = "";
   let busy = false;
 
+  const labelFits = (text, box) =>
+    text.scrollHeight <= box.clientHeight && text.scrollWidth <= text.clientWidth + 1;
+
+  const fitWheelLabels = () => {
+    wheel.querySelectorAll(".wheel-label-text").forEach((text) => {
+      const box = text.parentElement;
+      if (!box.clientWidth || !box.clientHeight || text.clientWidth < 8) return;
+      text.style.transform = "none";
+      let size = Math.max(11, Math.min(14, box.clientWidth * 0.16));
+      text.style.fontSize = `${size}px`;
+      while (size > 6 && !labelFits(text, box)) {
+        size -= 0.25;
+        text.style.fontSize = `${size}px`;
+      }
+      if (!labelFits(text, box)) {
+        const scale = Math.min(
+          text.clientWidth / Math.max(text.scrollWidth, 1),
+          box.clientHeight / Math.max(text.scrollHeight, 1),
+          1
+        );
+        text.style.transform = `scale(${scale})`;
+      }
+    });
+  };
+
+  let fitFrame = 0;
+  const scheduleFitWheelLabels = () => {
+    window.cancelAnimationFrame(fitFrame);
+    fitFrame = window.requestAnimationFrame(fitWheelLabels);
+  };
+  scheduleFitWheelLabels();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleFitWheelLabels);
+  window.addEventListener("resize", scheduleFitWheelLabels);
+  if (typeof ResizeObserver !== "undefined") new ResizeObserver(scheduleFitWheelLabels).observe(wheel);
+
   const setStatus = (message, kind = "") => {
     status.textContent = message;
     status.className = "status " + kind;

@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ruleta Gomixx</title>
+  <title>Gomixxnqn</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
@@ -12,11 +14,11 @@
 <body>
   <main class="page">
     <header class="brand">
-      <div class="brand-mark">G</div>
-      <div><p class="eyebrow">UN PREMIO TE ESPERA</p><h1>Gomi<span>xx</span></h1></div>
+      <p class="eyebrow">UN PREMIO TE ESPERA</p>
+      <img class="brand-logo" src="logo.png" alt="Gomixx">
     </header>
     <section class="panel">
-      <h2>La ruleta de Gomixx</h2>
+      <h2>Ruleta Gomixx</h2>
       <p class="muted">¿Hiciste una compra? Ingresá el código que te dimos para desbloquear tu giro.</p>
       <form id="code-form" class="code-form">
         <label for="purchase-code">Código de compra</label>
@@ -29,22 +31,21 @@
       <div class="wheel-wrap">
         <div class="pointer" aria-hidden="true"></div>
         <div id="wheel" class="wheel" aria-label="Ruleta de premios">
-          <span class="wheel-label label-0">+5 g</span>
-          <span class="wheel-label label-1">5% OFF</span>
-          <span class="wheel-label label-2">Sorpresa</span>
-          <span class="wheel-label label-3">+5 g</span>
-          <span class="wheel-label label-4">Sello extra</span>
-          <span class="wheel-label label-5">+10 g</span>
-          <span class="wheel-label label-6">5% OFF</span>
-          <span class="wheel-label label-7">+5 g</span>
-          <div class="wheel-center">GOMI<br>XX</div>
+          <span class="wheel-label label-0"><span class="wheel-label-text">+5 g</span></span>
+          <span class="wheel-label label-1"><span class="wheel-label-text">10% OFF</span></span>
+          <span class="wheel-label label-2"><span class="wheel-label-text">+10 g</span></span>
+          <span class="wheel-label label-3"><span class="wheel-label-text">Sello extra</span></span>
+          <span class="wheel-label label-4"><span class="wheel-label-text">La próxima será</span></span>
+          <span class="wheel-label label-5"><span class="wheel-label-text">Tiro extra</span></span>
+          <span class="wheel-label label-6"><span class="wheel-label-text">5% OFF</span></span>
+          <div class="wheel-center">GOMIXX</div>
         </div>
       </div>
       <button id="spin-button" class="spin-button" disabled>Validá tu compra para girar</button>
       <div id="result" class="result hidden"></div>
       <p class="fine-print">Un giro por código de compra. Guardá el resultado para canjear tu premio en tu próxima compra. Los premios y sus condiciones los confirma Gomixx.</p>
     </section>
-    <footer>Gomixx · Gomitas a tu manera</footer>
+    <footer>Gomixx</footer>
   </main>
 </body>
 </html>
