@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel privado · Gomixx</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body>
+  <main class="page admin-page">
+    <header class="brand">
+      <div class="brand-mark">G</div>
+      <div><p class="eyebrow">SOLO PARA EL EQUIPO</p><h1>Gomixx <span>Admin</span></h1></div>
+    </header>
+    <section class="panel">
+      <h2>Panel privado</h2>
+      <p class="muted">Iniciá sesión para crear códigos por compra y consultar los premios ganados.</p>
+      <form id="login-form" class="stack">
+        <label for="email">Correo administrador</label>
+        <input id="email" type="email" autocomplete="username" required placeholder="tu-correo@ejemplo.com">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button type="submit">Iniciar sesión</button>
+      </form>
+      <p id="admin-status" class="status" role="status" aria-live="polite"></p>
+      <div id="dashboard" class="hidden">
+        <div class="section-heading"><h3>Crear código por compra</h3><button id="logout-button" class="secondary">Cerrar sesión</button></div>
+        <form id="code-create-form" class="stack">
+          <label for="order-reference">Referencia del pedido (opcional)</label>
+          <input id="order-reference" maxlength="100" placeholder="Ej. Pedido del sábado #14">
+          <button type="submit">Generar código de un giro</button>
+        </form>
+        <div id="new-code" class="new-code hidden"></div>
+        <hr>
+        <div class="section-heading"><h3>Últimas jugadas</h3><button id="refresh-button" class="secondary">Actualizar</button></div>
+        <div class="table-wrap">
+          <table><thead><tr><th>Fecha</th><th>Código</th><th>Pedido</th><th>Premio</th></tr></thead><tbody id="spins-body"><tr><td colspan="4">Iniciá sesión y actualizá los datos.</td></tr></tbody></table>
+        </div>
+      </div>
+    </section>
+    <footer><a href="index.html">Volver a la ruleta</a></footer>
+  </main>
+</body>
+</html>
