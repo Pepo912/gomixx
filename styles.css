@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 :root{--purple:#683779;--deep:#42204e;--pink:#f3a8d4;--blue:#a8d9ff;--yellow:#ffdf75;--lav:#c9b5ff;--ink:#33243a;--muted:#786d7e;--paper:#fffafd;--line:#eee3f0}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at 10% 0%,#ffe2f2 0,transparent 35%),radial-gradient(circle at 100% 30%,#e7e0ff 0,transparent 32%),#fff8fc;color:var(--ink);font-family:Nunito,system-ui,sans-serif;min-height:100vh}
+body{margin:0;background:#DFE5FD;color:var(--ink);font-family:Nunito,system-ui,sans-serif;min-height:100vh}
 .page{width:min(100% - 28px,760px);margin:0 auto;padding:28px 0 20px}
 .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin:4px 0 20px}
 .brand-logo{display:block;width:min(100%,280px);height:auto}
