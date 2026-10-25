@@ -20,7 +20,9 @@
     wheel.querySelectorAll(".wheel-label-text").forEach((text) => {
       const box = text.parentElement;
       if (!box.clientWidth || !box.clientHeight || text.clientWidth < 8) return;
-      text.style.transform = "none";
+      const angle = Number.parseFloat(getComputedStyle(box).getPropertyValue("--label-angle")) || 0;
+      const counterRotation = `rotate(${-angle}deg)`;
+      text.style.transform = counterRotation;
       let size = Math.max(11, Math.min(14, box.clientWidth * 0.16));
       text.style.fontSize = `${size}px`;
       while (size > 6 && !labelFits(text, box)) {
@@ -33,7 +35,7 @@
           box.clientHeight / Math.max(text.scrollHeight, 1),
           1
         );
-        text.style.transform = `scale(${scale})`;
+        text.style.transform = `${counterRotation} scale(${scale})`;
       }
     });
   };
